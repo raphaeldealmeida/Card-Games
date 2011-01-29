@@ -1,0 +1,4 @@
+Criar Deck
+Limpar Testes
+Patronizar a API da classe Card
+
