@@ -3,24 +3,6 @@ require File.dirname(__FILE__) + '/../lib/uno.rb'
 
 describe Uno do
 
-  describe Card do
-
-    context 'on create' do
-
-      it 'should have a color' do
-        red_card = Card.new :red, :one
-        red_card.color.should == :red
-      end
-
-      it 'should have a number' do
-        card_one = Card.new :blue, :one
-        card_one.number.should == :one
-      end
-
-    end
-
-  end
-
   context 'on create' do
     before do
       @uno = Uno.new
@@ -66,7 +48,8 @@ describe Uno do
         yellow_cards.should have(19).elements
       end
     end
-
+    
+    describe 'action cards' do
     context 'reverse cards' do
       it 'should have eight reverse cards' do
         reverse_cards = subject.cards.find_all {|card| card.number == :reverse}
@@ -162,7 +145,7 @@ describe Uno do
         wild_draw_four_cards.should have(4).cards
       end
     end
-
+  end
     def find_cards(color, number = nil)
       subject.cards.find_all do |card|
         if number.nil?
