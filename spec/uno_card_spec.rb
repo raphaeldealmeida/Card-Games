@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/../lib/card.rb'
+require "spec_helper"
 
 describe Card do
   context 'on create' do

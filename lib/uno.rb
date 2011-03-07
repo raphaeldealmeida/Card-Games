@@ -1,11 +1,12 @@
 class Uno
-  attr_reader :cards, :players
+  attr_reader :cards, :players, :discart_pile, :current_player
   attr_accessor :deck
 
   def initialize
     @numbers = [:zero, :one, :two, :three, :four, :five, :six, :seven, :eight, :nine]
     @cards = []
     @players = []
+    @discart_pile = []
     build_cards :blue
     build_cards :green
     build_cards :red
@@ -41,6 +42,18 @@ class Uno
   
   def deck
     cards
+  end
+
+  def start
+    @discart_pile << @deck.shift
+    @current_player = @players.first
+  end
+
+  def discart(position)
+    @discart_pile << @current_player.discart(position)
+    index_player = @players.index @current_player
+    index_player = -1 if ((index_player+1) > (@players.count-1))
+    @current_player = @players.at index_player+1
   end
   
 end

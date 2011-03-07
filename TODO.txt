@@ -2,3 +2,6 @@ Criar Deck
 Limpar Testes
 Patronizar a API da classe Card
 
+Criar discart pile
+Stock
+
